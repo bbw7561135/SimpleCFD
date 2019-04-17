@@ -18,6 +18,7 @@ module shared_data
   logical :: rti1_test = .false.
   logical :: blob1_test = .false.
   logical :: circular_drop = .false.
+  logical :: ccc_logo = .false.
 
   ! core solver
 

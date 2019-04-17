@@ -220,5 +220,55 @@ module initial_conditions
 
   end subroutine circular_drop_ic
 
+  subroutine ccc_logo_ic
+
+    real(num) :: x, y, r
+    real(num) :: outer = 0.5_num, inner = 0.2_num
+
+    u = 0.0_num
+    v = 0.0_num
+
+    grav_x = 0.0_num
+    grav_y = -1.0_num
+
+    rho = 1.0_num
+
+    do iy = -1,ny+1
+    do ix = -1,nx+1
+      x = xc(ix)
+      y = yc(iy)
+      r = sqrt(x**2 + y**2)
+      if ( (r <= outer) .and. (r >= inner) .and. (y < 0) ) then
+        rho(ix,iy) = 2.0_num
+      endif
+    enddo
+    enddo
+
+!    do iy = -1,ny+1
+!    do ix = -1,nx+1
+!      x = xc(ix)
+!      y = yc(iy)
+!      r = sqrt(x**2 + y**2)
+!      if ( (abs(x) < 0.4_num) .and. (abs(y) < 0.1_num) ) then
+!        rho(ix,iy) = 5.0_num
+!      endif
+!    enddo
+!    enddo
+
+    do iy = -1,ny+1
+    do ix = -1,nx+1
+      x = xc(ix)
+      y = yc(iy)
+      u(ix,iy) = 1.0_num - 2.0_num * cos(2.0_num*pi*x)*sin(2.0_num*pi*y)
+      v(ix,iy) = 1.0_num + 2.0_num * sin(2.0_num*pi*x)*cos(2.0_num*pi*y)
+    enddo
+    enddo
+
+
+
+
+  end subroutine ccc_logo_ic
+
+
 end module initial_conditions
 

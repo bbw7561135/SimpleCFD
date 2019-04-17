@@ -26,6 +26,7 @@ module setup
     if (rti1_test) call rti1_control
     if (circular_drop) call circular_drop_control
     if (blob1_test) call blob1_control
+    if (ccc_logo) call ccc_logo_control
 
     call allocate_global_arrays
 
@@ -38,6 +39,7 @@ module setup
     if (rti1_test) call rti1_ic
     if (circular_drop) call circular_drop_ic
     if (blob1_test) call blob1_ic
+    if (ccc_logo) call ccc_logo_ic
 
     call setup_mg
 
@@ -127,6 +129,7 @@ module setup
     if (rti1_test) call rti1_ic
     if (circular_drop) call circular_drop_ic
     if (blob1_test) call blob1_ic
+    if (ccc_logo) call ccc_logo_ic
 
     time = 0.0_num !reset to zero important
 
